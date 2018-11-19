@@ -29,10 +29,10 @@ Faça um Fork deste repositório e abra um Pull Request, com seu nome na descri�
 Assim que terminar, envie um e-mail para contato@shipp.delivery com o seu usuário do Bitbucket nos avisando.
 
 ---
-Diferenciais:
-- Criar um middleware para verificar a existência ou não dos parâmetros obrigatórios da API.
-- Escrever um teste (ou conjunto de testes) que garanta o funcionamento esperado da API.
-- Criar um middleware que realize um log de cada request, registrando o horário, o valor de latitude, 
+#####Diferenciais:
+1) Criar um middleware para verificar a existência ou não dos parâmetros obrigatórios da API.
+2) Escrever um teste (ou conjunto de testes) que garanta o funcionamento esperado da API.
+3) Criar um middleware que realize um log de cada request, registrando o horário, o valor de latitude, 
 o valor de longitude, o status code e o número de lojas retornadas. Decida se o log será registrado em banco de dados
 ou em arquivo simples de texto.
 
