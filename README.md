@@ -27,8 +27,7 @@ localização de cada cliente.
 
 O desafio deve ser implementado na framework Laravel.
 
-Faça um Fork deste repositório e abra um Pull Request, com seu nome na descrição, para participar. 
-Assim que terminar, envie um e-mail para contato@shipp.delivery com o seu usuário do Bitbucket nos avisando.
+Faça um Fork deste repositório e abra um Pull Request, com seu nome na descrição, para participar.
 
 ---
 ### Diferenciais
