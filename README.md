@@ -1,4 +1,4 @@
-![picture](https://s3-sa-east-1.amazonaws.com/shippmedia/general/backend.png)
+![picture](https://shippmedia.s3.sa-east-1.amazonaws.com/popups/desafioshipp.png)
 
 # Desafio Shipp Backend
 
