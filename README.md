@@ -10,7 +10,7 @@ a base de dados de lojas fake disponibilizada no final da descrição do desafio
 1) Crie uma modelagem de banco de dados para o dataset fornecido. Utilize um banco de dados sqlite para o desafio. 
 Defina a modelagem que seja a mais adequada para a solução, na sua opinião.
 
-2) Implemente um *Command*, que importa os dados do .csv para o banco .sqlite, e que possua a seguinte assinatura: **"php artisan import:db"**.
+2) Implemente um *Comando*, que importa os dados do .csv para o banco .sqlite, esse comando pode ser feito via terminal. E necessário criar um README.md explicando como rodar esse comando.
 
 3) defina uma rota **GET /V1/stores** onde será possível obter todas as lojas hospedadas no banco de dados. A rota deve receber como 
 parâmetro um valor de latitude e um valor de longitude. Caso alguém tente acessar este endpoint sem um desses parâmetros, o
@@ -25,7 +25,7 @@ encontrada no .csv fornecido na coluna 15 (location). O corpo da resposta deve c
 atributo não deve pertencer à modelagem de banco de dados, uma vez que trata-se de um atributo calculado em tempo real, de acordo com a
 localização de cada cliente.
 
-O desafio deve ser implementado na framework Laravel.
+O desafio pode ser implementado em qualquer linguagem de backend, dê preferencia as linguagens (PHP,Nodejs,Python,Java,Ruby).
 
 Faça um Fork deste repositório e abra um Pull Request, com seu nome na descrição, para participar.
 
