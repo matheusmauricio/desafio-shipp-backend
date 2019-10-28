@@ -25,7 +25,7 @@ encontrada no .csv fornecido na coluna 15 (location). O corpo da resposta deve c
 atributo não deve pertencer à modelagem de banco de dados, uma vez que trata-se de um atributo calculado em tempo real, de acordo com a
 localização de cada cliente.
 
-O desafio pode ser implementado em qualquer linguagem de backend, dê preferencia as linguagens (PHP,Nodejs,Python,Java,Ruby).
+O desafio pode ser implementado em qualquer linguagem de backend, dê preferencia as linguagens (PHP,Nodejs,Python,Java).
 
 Faça um Fork deste repositório e abra um Pull Request, com seu nome na descrição, para participar.
 
