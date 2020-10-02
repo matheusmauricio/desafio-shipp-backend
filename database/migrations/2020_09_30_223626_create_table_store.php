@@ -15,7 +15,7 @@ class CreateTableStore extends Migration
     {
         Schema::create('store', function (Blueprint $table) {
             $table->id()->autoIncrement();
-            $table->foreignId('id_address')->constrained('address');
+            $table->foreignId('id_address')->constrained('address')->onDelete('cascade');
             $table->string('license_number');
             $table->string('operation_type');
             $table->string('establishment_type');
@@ -31,6 +31,7 @@ class CreateTableStore extends Migration
      */
     public function down()
     {
+        Schema::dropForeign('address_id_foreign');
         Schema::dropIfExists('store');
     }
 }

@@ -17,4 +17,10 @@ class StoreController extends Controller
     public function importarDadosCsv(){
         return $this->service->importarDadosCsv();
     }
+
+    public function inserirLoja(Request $request){
+        $dados = $request->all();
+
+        return $this->service->inserirLoja($dados);
+    }
 }

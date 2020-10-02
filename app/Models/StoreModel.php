@@ -11,6 +11,6 @@ class StoreModel extends Model
     public $timestamps      = false;
 
     protected $fillable     = [
-        'license_number', 'operation_type', 'establishment_type', 'entity_name', 'dba_name'
+        'id_address', 'license_number', 'operation_type', 'establishment_type', 'entity_name', 'dba_name'
     ];
 }

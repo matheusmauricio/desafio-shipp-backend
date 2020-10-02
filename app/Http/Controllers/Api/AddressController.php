@@ -14,5 +14,9 @@ class AddressController extends Controller
         $this->service = $service;
     }
 
+    public function inserirEndereco(Request $request){
+        $dados = $request->all();
 
+        return $this->service->inserirEndereco($dados);
+    }
 }

@@ -25,9 +25,9 @@ class CreateTableAddress extends Migration
             $table->string('zip_code');
             $table->string('square_footage');
             $table->string('location');
-            $table->string('latitude');
-            $table->string('longitude');
-            $table->string('needs_recoding');
+            $table->float('latitude');
+            $table->float('longitude');
+            $table->boolean('needs_recoding');
         });
     }
 
