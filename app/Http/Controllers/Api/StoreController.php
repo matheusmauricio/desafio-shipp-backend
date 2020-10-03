@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Services\StoreService;
+use App\Services\StoreService;
 
 class StoreController extends Controller
 {
@@ -14,13 +14,13 @@ class StoreController extends Controller
         $this->service = $service;
     }
 
-    public function importarDadosCsv(){
-        return $this->service->importarDadosCsv();
-    }
-
     public function inserirLoja(Request $request){
         $dados = $request->all();
 
         return $this->service->inserirLoja($dados);
+    }
+
+    public function buscarLojas($latitude = null, $longitude = null){
+        return $this->service->buscarLojas($latitude, $longitude);
     }
 }

@@ -22,7 +22,7 @@ class ImportarDadosBancoCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Importa os dados do arquivo store.csv (localizado na pasta storage/app) para a base de dados desafio-shipp.sqlite';
+    protected $description = 'Importa os dados do arquivo stores.csv (localizado na pasta storage/app) para a base de dados desafio-shipp.sqlite';
 
     protected $storeService;
     protected $addressService;

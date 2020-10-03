@@ -13,11 +13,13 @@ class StoreRepository
 		$this->model = $model;
 	}
 
-    public function listarLojas(){
-        $model = $this->model
+    public function listarTodasLojas(){
+        return $this->model
+        ->select('store.*', 'address.latitude', 'address.longitude')
+        ->join('address', 'store.id_address', '=', 'address.id')
+        ->where('latitude', '<>', '')
+        ->where('longitude', '<>', '')
         ->get();
-
-        return $model;
     }
 
     public function detalharLoja($idLoja){

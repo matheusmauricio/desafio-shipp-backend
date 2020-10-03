@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Http\Services;
 
 use App\Http\Resources\AddressResource;
 use App\Repositories\AddressRepository;
@@ -79,7 +79,7 @@ class AddressService
             'location'      => trim($dados['location']) ?? null,
             'latitude'      => $dados['latitude'] ?? null,
             'longitude'     => $dados['longitude'] ?? null,
-            'needsRecoding' => $dados['needsRecoding'] ?? null,
+            'needsRecoding' => $dados['needsRecoding'] ?? null
         ];
     }
 }

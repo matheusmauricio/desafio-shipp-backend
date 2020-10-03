@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::prefix('V1')->group(function () {
+    Route::get('stores', 'Api\StoreController@buscarLojas')->middleware('verifica_parametros');
+    Route::get('stores/{latitude?}', 'Api\StoreController@buscarLojas')->middleware('verifica_parametros');
+    Route::get('stores/{latitude?}/{longitude?}', 'Api\StoreController@buscarLojas')->middleware('verifica_parametros');
+    Route::get('stores/{latitude?}/{longitude?}/{parametro3?}', 'Api\StoreController@buscarLojas')->middleware('verifica_parametros')->where('parametro3', '.*');
 });
