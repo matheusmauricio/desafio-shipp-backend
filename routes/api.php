@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::prefix('V1')->group(function () {
+Route::prefix('V1')->middleware('registra_log')->group(function () {
     Route::get('stores', 'Api\StoreController@buscarLojas')->middleware('verifica_parametros');
     Route::get('stores/{latitude?}', 'Api\StoreController@buscarLojas')->middleware('verifica_parametros');
     Route::get('stores/{latitude?}/{longitude?}', 'Api\StoreController@buscarLojas')->middleware('verifica_parametros');

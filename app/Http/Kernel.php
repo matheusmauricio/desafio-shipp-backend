@@ -63,5 +63,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'verifica_parametros' => \App\Http\Middleware\VerificaParametros::class,
+        'registra_log' => \App\Http\Middleware\RegistraLog::class,
     ];
 }
