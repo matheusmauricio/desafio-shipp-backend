@@ -2,8 +2,8 @@
 
 namespace App\Console\Commands;
 
-use App\Http\Services\AddressService;
-use App\Http\Services\StoreService;
+use App\Services\AddressService;
+use App\Services\StoreService;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Log;
 use League\Csv\Reader;
@@ -54,7 +54,7 @@ class ImportarDadosBancoCommand extends Command
             Log::info('Entrou na função ' . __FUNCTION__);
 
             //Verifica se a base de dados existe no caminho especificado no README.md
-            if (!file_exists(database_path('database.sqlite'))){
+            if (!file_exists(database_path('desafio-shipp.sqlite'))){
                 Log::info('Encerrendo execução pois a base de dados não existe no caminho especificado.');
 
                 return [
@@ -79,26 +79,39 @@ class ImportarDadosBancoCommand extends Command
             $csv->setDelimiter(',');
             $csv->setHeaderOffset(0);
 
-            $conteudoCsv = $csv->getRecords();
+            for($i = 0; $i < $csv->count(); $i++){
+                $conteudoCsv = $csv->getRecords();
+            }
 
-            foreach($conteudoCsv as $linha){
-                $linha = $this->converterKeyArray($linha);
+            $conteudoCsv = collect($conteudoCsv);
+            $conteudoCsv = $conteudoCsv->toArray($conteudoCsv);
 
-                // Cadastra o endereço
-                $enderecoCadastrado = $this->addressService->inserirEndereco($linha);
+            $chunks = array_chunk($conteudoCsv, 5000);
 
-                if(!$enderecoCadastrado['success']){
-                    continue;
-                }
+            foreach($chunks as $chunk){
+                foreach($chunk as $linha){
+                    $linha = $this->converterKeyArray($linha);
 
-                $enderecoCadastrado['data'] = collect($enderecoCadastrado['data']);
+                    // Cadastra o endereço
+                    $enderecoCadastrado = $this->addressService->inserirEndereco($linha);
 
-                $linha['idAddress'] = $enderecoCadastrado['data']['idAddress'];
+                    if(!$enderecoCadastrado['success']){
+                        Log::info('Falha ao inserir a linha ' . json_encode($linha));
 
-                $lojaCadastrada = $this->storeService->inserirLoja($linha);
+                        continue;
+                    }
 
-                if(!$lojaCadastrada['success']){
-                    continue;
+                    $enderecoCadastrado['data'] = collect($enderecoCadastrado['data']);
+
+                    $linha['idAddress'] = $enderecoCadastrado['data']['idAddress'];
+
+                    $lojaCadastrada = $this->storeService->inserirLoja($linha);
+
+                    if(!$lojaCadastrada['success']){
+                        Log::info('Falha ao inserir a linha ' . json_encode($linha));
+
+                        continue;
+                    }
                 }
             }
 
