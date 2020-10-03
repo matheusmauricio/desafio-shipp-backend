@@ -40,3 +40,24 @@ ou em arquivo simples de texto.
 ---
 
 [dataset.csv](https://s3-sa-east-1.amazonaws.com/shippmedia/general/stores.csv)
+
+# Parte do Desenvolvedor
+
+Nome: Matheus Mauricio de Souza Araujo
+E-mail: matheus_mauricio@hotmail.com
+Vaga: Desenvolvedor Backend
+Linkedin: https://www.linkedin.com/in/matheus-mauricio-de-souza-araujo-1b3a52185/
+
+### Instruções para rodar o projeto
+- Faça o download/clone do projeto
+- Executar o comando `composer install`
+- Rodar o servidor PHP. Para esse projeto eu rodei o servidor na porta 8001 com o comando `php -S 0.0.0.0:8001 -t public`
+- Para criar as tabelas é necessário criar a base `desafio-shipp.sqlite` (conforme consta no **.env**) e rodar o comando `php artisan migrate` no terminal
+- Antes de rodar o comando **php artisan command:importar-base-dados** (que importará os dados do arquivo .csv para o base do sqlite) certifique-se de mudar o caminho absoluto da variável **DB_DATABASE** que está no arquivo **.env**
+- Executar o comando no terminal **php artisan command:importar-base-dados** na pasta raíz do projeto (essa importação levará alguns minutos)
+
+### Observações
+- Durante o desenvolvimento todos os commits foram realizados na branch develop, e após a conclusão foi feito um merge com a branch master.
+- Para facilitar o entendimento e execução desse projeto, o arquivo **.env** ficará disponível aqui nesse repositório com as informações necessárias para fazer o projeto funcionar.
+- É necessário se certificar que o computador que está rodando o projeto possui a versão 7.3 ou superior do PHP
+- O arquivo .csv fornecido está na pasta storage/app para melhor organização.
