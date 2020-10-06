@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Services\AddressService;
 use App\Services\StoreService;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use League\Csv\Reader;
 
@@ -88,7 +89,10 @@ class ImportarDadosBancoCommand extends Command
 
             $chunks = array_chunk($conteudoCsv, 5000);
 
+            DB::beginTransaction();
+
             foreach($chunks as $chunk){
+
                 foreach($chunk as $linha){
                     $linha = $this->converterKeyArray($linha);
 
@@ -113,7 +117,10 @@ class ImportarDadosBancoCommand extends Command
                         continue;
                     }
                 }
+
             }
+
+            DB::commit();
 
             Log::info('Finalizou a importação dos dados csv');
 

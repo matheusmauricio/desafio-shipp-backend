@@ -20,24 +20,24 @@ class StoreService
         try{
             // Obs.: Como a ideia do projeto é inserir os dados na base a partir de um arquivo csv estático, estou levando em consideração que os dados e o header sempre estarão no mesmo formato/padrão, portanto não estou realizando nenhuma validação dos dados recebidos.
 
-            DB::beginTransaction();
+            // DB::beginTransaction();
 
-            $dados = $this->formatarDadosLoja($dados);
+            // $dados = $this->formatarDadosLoja($dados);
 
             $idLojaCadastrada = $this->repository->inserirLoja($dados);
 
-            $lojaCadastrada = $this->repository->detalharLoja($idLojaCadastrada);
+            // $lojaCadastrada = $this->repository->detalharLoja($idLojaCadastrada);
 
-            DB::commit();
+            // DB::commit();
 
             return [
                 'success'   => true,
                 'message'   => 'Loja inserida com sucesso.',
-                'data'      => StoreResource::make($lojaCadastrada)
+                'data'      => []
             ];
 
         } catch(\Exception $e){
-            DB::rollBack();
+            // DB::rollBack();
 
             return [
                 'success'   => false,

@@ -19,24 +19,24 @@ class AddressService
         try{
             // Obs.: Como a ideia do projeto é inserir os dados na base a partir de um arquivo csv estático, estou levando em consideração que os dados e o header sempre estarão no mesmo formato/padrão, portanto não estou realizando nenhuma validação dos dados recebidos.
 
-            DB::beginTransaction();
+            // DB::beginTransaction();
 
-            $dados = $this->formatarDadosEndereco($dados);
+            // $dados = $this->formatarDadosEndereco($dados);
 
             $idEnderecoCadastrado = $this->repository->inserirEndereco($dados);
 
-            $enderecoCadastrado = $this->repository->detalharEndereco($idEnderecoCadastrado);
+            // $enderecoCadastrado = $this->repository->detalharEndereco($idEnderecoCadastrado);
 
-            DB::commit();
+            // DB::commit();
 
             return [
                 'success'   => true,
                 'message'   => 'Endereço inserido com sucesso.',
-                'data'      => AddressResource::make($enderecoCadastrado)
+                'data'      => ['idAddress' => $idEnderecoCadastrado]
             ];
 
         } catch(\Exception $e){
-            DB::rollBack();
+            // DB::rollBack();
 
             return [
                 'success'   => false,
